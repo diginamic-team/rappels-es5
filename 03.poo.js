@@ -1,7 +1,8 @@
 
 var lg = console.log;
 
-function Personne(nom, prenom, pseudo) {
+function Personne(nom, prenom, pseudo, sexe) {
+    this.sexe = sexe || "Homme";
     this.nom = nom;
     this.prenom = prenom;
     this.pseudo = pseudo;
@@ -18,6 +19,7 @@ var paul  = new Personne('LEMAIRE', 'Paul', 'paul44');
 
 function afficherPersonne(Personne){
     lg(Personne.nom);
+    lg(Personne.sexe);
     lg(Personne.prenom);
     lg(Personne.pseudo);
     lg(Personne.getNomComplet());
@@ -57,3 +59,20 @@ var robert ={
 }
 
 afficherPersonne(robert);
+
+// Héritage via une fonction constructeur
+
+function client(nom, prenom, pseudo, numeroClient, sexe  ){
+    Personne.call(this, nom, prenom, pseudo, sexe);
+    this.numeroClient = numeroClient;
+    this.getInfos = function () {
+        return this.numeroClient + ' ' + this.prenom + ' ' + this.pseudo;
+    }
+}
+
+var steve = new client('LUCAS','Steve','steve44', 'A01');
+afficherPersonne(steve);
+lg(steve.numeroClient);
+lg(steve.getInfos());
+lg(steve.nom);
+lg(steve.sexe);
