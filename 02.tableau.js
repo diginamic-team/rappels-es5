@@ -39,8 +39,13 @@ console.log ("Villes sans tiret et sans espace", villesSansTiretSansEspace)
 
 /* CHAINER LES FONCTIONS */
 
-var villesQuiSeTerminentAvecUnS = villes.sort(function(el){
+var villesQuiSeTerminentAvecUnS = villes.filter(function(el){
     return el.endsWith('s');
 })
 
-console.log ("Villes qui se terminent avec un S", villesQuiSeTerminentAvecUnS)
+var villesQuiSeTerminentAvecUnS = villes.map(function(el){
+    return el.toUpperCase();
+})
+
+
+console.log ("Villes qui se terminent avec un S", villesQuiSeTerminentAvecUnS);
