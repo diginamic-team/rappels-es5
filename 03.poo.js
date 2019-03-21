@@ -28,3 +28,31 @@ console.log(jules.age);
 Personne.prototype.age = 'non renseigne';
 console.log(jules.age);
 console.log(jules.getInitiales());
+
+let robert = {
+    nom:'LEPREFET',
+    prenom:'Robert',
+    pseudo: 'robert77',
+    getNomComplet: function(){
+        return this.nom + ' ' + this.prenom + ' ' + this.pseudo;
+    }
+
+   
+}
+
+affichePersonne(robert);
+
+function Client(nom, prenom, pseudo, numClient){
+    Personne.call(this, nom, prenom, pseudo);
+    this.numeroClient = numClient;
+
+    this.getInfos = function () {
+        return this.numeroClient+' '+this.nom + ' ' + this.prenom;
+    }
+}
+
+let steve = new Client('LUCAS','Steve','steve44','A01');
+
+affichePersonne(steve);
+
+console.log(steve.getInfos());
